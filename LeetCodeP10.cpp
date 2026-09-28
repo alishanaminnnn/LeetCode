@@ -11,7 +11,31 @@ struct ListNode
 class Solution
 {
 public:
-
+    int getDecimalValue(ListNode *head)
+    {
+        ListNode *curr = head;
+        int counter = 0;
+        while (curr!= nullptr)
+        {
+            counter++;
+            curr = curr->next;
+        }
+        curr = head;
+        int decimal = 0;
+        for (int i = counter-1; i >=0; i--)
+        {
+            if (curr->val == 0)
+            {
+                decimal = decimal + 0;
+            }
+            else
+            {
+                decimal = decimal + getPower(i);
+            }
+            curr=curr->next;
+        }
+        return decimal;
+    }
     int getPower(int a)
     {
         int pwr = 1;
