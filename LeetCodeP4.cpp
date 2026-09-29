@@ -1,58 +1,51 @@
-
-  struct ListNode {
+struct ListNode {
       int val;
       ListNode *next;
       ListNode() : val(0), next(nullptr) {}
       ListNode(int x) : val(x), next(nullptr) {}
       ListNode(int x, ListNode *next) : val(x), next(next) {}
   };
- 
+
 class Solution {
 public:
-    ListNode *List;
-    ListNode *curr;
-    ListNode *curr1;
-    ListNode *curr2;
-
-public:
-    Solution(){
-        curr1=nullptr;
-        curr2=nullptr;
-        List=nullptr;
-    }
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        curr1=l1;
-        curr2=l2;
-        while(curr1!=nullptr || curr2!=nullptr){
-            int tempNum=0;
-            tempNum=(curr1->val)+(curr2->val);
-            if(List==nullptr){
-                if(tempNum>9){
-                    List=new ListNode(tempNum%10);
-                }
-                else{
-                    List=new ListNode(tempNum);
-                }
-            }
-                    
-            else{
-                ListNode *temp=nullptr;
-                if(tempNum>=10){
-                    temp=new ListNode(tempNum+1);
-                    temp->next=List;
-                    List=temp;
-                }
-                else{
-                    temp=new ListNode(tempNum);
-                    temp->next=List;
-                    List=temp;
-                }
-            }
+        ListNode* curr1=l1;
+        ListNode* curr2=l2;
+        ListNode* l3=nullptr;
+        int counter1=0;
+        int counter2=0;
+        int counter=0;
+
+
+        while(curr1!=nullptr){
+            counter1++;
             curr1=curr1->next;
+        }
+        while(curr2!=nullptr){
+            counter2++;
             curr2=curr2->next;
         }
-        return List;
-    }
-    
+        curr1=l1;
+        curr2=l2;
+        ListNode* curr;
+        if(counter1>counter2){
+            curr=curr1;
+            counter=counter1;
 
+        }
+        else if(counter1==counter2){
+            curr=curr1;
+            counter=counter1;
+        }
+        else{
+            curr=curr2;
+            counter=counter2;
+        }
+
+        for(int i=0;i<counter;i++){
+            
+        }
+
+        
+    }
 };
