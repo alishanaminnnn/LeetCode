@@ -27,25 +27,21 @@ public:
         }
         curr1=l1;
         curr2=l2;
-        ListNode* curr;
-        if(counter1>counter2){
-            curr=curr1;
-            counter=counter1;
-
-        }
-        else if(counter1==counter2){
-            curr=curr1;
+        if (counter1>counter2)
+        {
             counter=counter1;
         }
-        else{
-            curr=curr2;
+        else
+        {
             counter=counter2;
         }
-
-        for(int i=0;i<counter;i++){
+        
+        for (int  i = 0; i < counter; i++)
+        {
             
         }
-
+        
+        
         
     }
 };
