@@ -99,16 +99,25 @@ public:
   int getLenght() { return lenght; }
 };
 void elementsPostion(LinkedList *l1, LinkedList *l2) {
-  LinkedList::Node *head1 = l1->getHead();
+  LinkedList::Node *curr1 = l1->getHead();
   LinkedList::Node *head2 = l2->getHead();
-  LinkedList::Node *curr1 = head1;
-  LinkedList::Node *curr2 = head2;
+
   while (curr1 != nullptr) {
-    for (int i = 0; i < curr1->data; i++) {
-      curr2 = curr2->next << " ";
+    LinkedList::Node *curr2 = head2;
+
+    for (int i = 1; i < curr1->data; i++) {
+      if (curr2 == nullptr) {
+        break;
+      }
+      curr2 = curr2->next;
     }
-    cout << curr2->data;
-    curr2 = head2;
+
+    if (curr2 != nullptr) {
+      cout << curr2->data << " ";
+    } else {
+      cout << "Invalid position: " << curr1->data << " ";
+    }
+
     curr1 = curr1->next;
   }
 }
