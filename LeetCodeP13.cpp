@@ -2,7 +2,7 @@
 using namespace std;
 
 class LinkedList {
-private:
+public:
   struct Node {
     int data;
     Node *prev;
@@ -83,15 +83,55 @@ public:
     }
     lenght--;
   }
-
-  int main() {
-    LinkedList l1;
-    l1.create(2);
-    l1.create(4);
-    l1.create(6);
-    l1.create(8);
-    l1.create(9);
-    l1.create(1);
-
-    return 0;
+  int getElement(int position) {
+    if (IsEmpty() || position > lenght) {
+      cout << "Invalid Case..";
+      return -1;
+    } else {
+      curr = head;
+      for (int i = 0; i < position; i++) {
+        curr = curr->next;
+      }
+      return curr->data;
+    }
   }
+  Node *getHead() { return head; }
+  int getLenght() { return lenght; }
+};
+void elementsPostion(LinkedList *l1, LinkedList *l2) {
+  LinkedList::Node *head1 = l1->getHead();
+  LinkedList::Node *head2 = l2->getHead();
+  LinkedList::Node *curr1 = head1;
+  LinkedList::Node *curr2 = head2;
+  while (curr1 != nullptr) {
+    for (int i = 0; i < curr1->data; i++) {
+      curr2 = curr2->next << " ";
+    }
+    cout << curr2->data;
+    curr2 = head2;
+    curr1 = curr1->next;
+  }
+}
+int main() {
+  LinkedList l1;
+  l1.create(2);
+  l1.create(4);
+  l1.create(6);
+  l1.create(8);
+  l1.create(9);
+  l1.create(1);
+  LinkedList l2;
+  l2.create(10);
+  l2.create(23);
+  l2.create(54);
+  l2.create(32);
+  l2.create(76);
+  l2.create(90);
+  l2.create(87);
+  l2.create(91);
+  l2.create(55);
+  l2.create(56);
+  elementsPostion(&l1, &l2);
+
+  return 0;
+}
