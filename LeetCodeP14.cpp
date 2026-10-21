@@ -42,15 +42,14 @@ void reverseArray(ArrayStack &A1) {
   for (int i = 0; i < count; i++) {
     *(rArr + i) = A1.pop();
   }
-
   cout << "Reversed Array: ";
-
   for (int i = 0; i < count; i++) {
     cout << *(rArr + i) << " ";
   }
 
   delete[] rArr;
 }
+
 
 int main() {
   ArrayStack A1;
